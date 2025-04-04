@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: wiscopy
-  version: "0.1.3"
+  version: "0.1.4"
   python_min: '3.10'
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/wiscopy-${{ version }}.tar.gz
-  sha256: 1b62082d091f79bce47082eca5ad9266f619f18a9186cb3fbec3651200e68738
+  sha256: f450ec8dde575fab1f87f636c72628c2d27c7f1dda54151c70be461b6b922748
 
 build:
   number: 0
