@@ -1,17 +1,16 @@
 schema_version: 1
 
 context:
-  name: wiscopy
-  version: "0.1.5"
-  python_min: '3.10'
+  version: "0.2.0"
+  python_min: "3.11"
 
 package:
-  name: ${{ name|lower }}
+  name: "wiscopy"
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/wiscopy-${{ version }}.tar.gz
-  sha256: 314a16ca218f960c08f394e70d38bc9c83f91697cfff8d630b4d5d071f71159f
+  url: https://pypi.org/packages/source/w/wiscopy/wiscopy-${{ version }}.tar.gz
+  sha256: 3e280a5207344b39285930274b54dbe1c1e6a0d7da1a1a93722e7e011434924f
 
 build:
   number: 0
@@ -26,16 +25,20 @@ requirements:
     - hatch-vcs
   run:
     - python >=${{ python_min }}
-    - pydantic >=2.10.6
-    - httpx >=0.28.1
-    - pandas >=2.2.3
+    - pydantic >=2.12.5,<3
+    - httpx >=0.28.1,<1
+    - pandas >=3.0.2,<4
+    - aiolimiter >=1.2.1,<2
+    - tqdm >=4.0
 
 tests:
   - python:
       imports:
         - wiscopy
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 
 about:
   license: MIT
