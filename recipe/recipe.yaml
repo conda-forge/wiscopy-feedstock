@@ -3,7 +3,7 @@ schema_version: 1
 context:
   name: wiscopy
   version: "0.2.0"
-  python_min: '3.10'
+  python_min: "3.11"
 
 package:
   name: ${{ name|lower }}
@@ -26,9 +26,11 @@ requirements:
     - hatch-vcs
   run:
     - python >=${{ python_min }}
-    - pydantic >=2.10.6
-    - httpx >=0.28.1
-    - pandas >=2.2.3
+    - pydantic >=2.12.5,<3
+    - httpx >=0.28.1,<1
+    - pandas >=3.0.2,<4
+    - aiolimiter >=1.2.1,<2
+    - tqdm >=4.0
 
 tests:
   - python:
